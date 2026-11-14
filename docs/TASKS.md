@@ -1,20 +1,20 @@
 # タスク一覧
 
-> 状態：フェーズ3の案（2026-11-09）。承認後に進捗の管理を始める。
+> 状態：フェーズ3で承認済み（2026-11-09）。進捗はこの表で管理する。
 > 共通の完了条件（DoD）：仕様どおりに動く／新しいロジックに単体テスト、認可が関わるAPIに統合テストがある／lint・型チェック・テストが通る／ログに個人情報が出ていない／仕様外の変更がない／必要に応じて README・DESIGN・DECISIONS の更新案を出している。
 > 下の「完了条件」には、共通DoDに加えて、そのタスクで満たすべきことを書く。
 
 ## 現在地
 
-- 完了：フェーズ1（要件）、フェーズ2（設計）
-- 次にやること：フェーズ3の承認 → T01
-- 未決事項：なし（LINE側の設定は `docs/LINE_SETUP.md` に沿ってユーザーが並行して進める。T13 までに開発用が必要）
+- 完了：フェーズ1（要件）、フェーズ2（設計）、フェーズ3（タスク分割）、T01
+- 次にやること：T01 のコミット・PR → T02（CI）
+- 未決事項：なし（LINE側の設定は `docs/LINE_SETUP.md` に沿ってユーザーが並行して進める。T14 までに開発用が必要）
 
 ## 一覧
 
 | ID | 状態 | ブランチ名案 | 内容 | 依存 | 完了日 |
 |---|---|---|---|---|---|
-| T01 | 未着手 | `chore/project-scaffold` | 雛形（Vite + React + Hono + Workers、strict、Biome、Vitest、.nvmrc、.gitignore、LICENSE） | — | |
+| T01 | 完了 | `chore/project-scaffold` | 雛形（Vite + React + Hono + Workers、strict、Biome、Vitest、.nvmrc、.gitignore、LICENSE） | — | 2026-11-09 |
 | T02 | 未着手 | `chore/ci-workflow` | GitHub Actions CI（lint・型チェック・テスト・ビルド）、commitlint、Dependabot | T01 | |
 | T03 | 未着手 | `feat/db-schema` | Drizzle スキーマ、最初のマイグレーション、D1 の開発用・本番用設定、テスト用のDB準備 | T01 | |
 | T04 | 未着手 | `feat/seed-data` | ローカル用のシードデータ | T03 | |

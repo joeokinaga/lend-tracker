@@ -176,3 +176,17 @@
 - D1の無料枠は未確認。構成案の作成時に公式で確認する。
 - 通知の受信者は利用者2〜5人とその相手。受信者ごとに1日1通にまとめても月200通を超えるおそれがある。フェーズ2で試算し、残数の確認方法も調べる
 - 上記の数値は、フェーズ2で出典URLとともに再確認する。
+
+## 開発コマンド
+
+Node は `.nvmrc`（24.22.2）を使う。
+
+```sh
+npm install          # 依存のインストール（lockfile どおり。CI では npm ci）
+npm run dev          # 開発サーバー（画面と API を同時に起動）
+npm test             # 単体テスト（Vitest）
+npm run lint         # Biome による lint とフォーマットの検査
+npm run format       # Biome による自動修正
+npm run typecheck    # wrangler types と tsc -b
+npm run build        # 本番用ビルド
+```
