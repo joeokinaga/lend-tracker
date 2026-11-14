@@ -1,0 +1,35 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      timezone: Asia/Tokyo
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: chore
+      include: scope
+    groups:
+      # Keep the Workers toolchain in lockstep (wrangler pins a matching workerd).
+      cloudflare:
+        patterns: ["wrangler", "@cloudflare/*"]
+      react:
+        patterns: ["react", "react-dom", "@types/react", "@types/react-dom"]
+      commitlint:
+        patterns: ["@commitlint/*"]
+    ignore:
+      # @cloudflare/vitest-pool-workers supports vitest ^4.1 only (checked 2026-11-09).
+      - dependency-name: vitest
+        update-types: ["version-update:semver-major"]
+      # Stay on the Node 24 line pinned in .nvmrc.
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      timezone: Asia/Tokyo
+    commit-message:
+      prefix: chore
+      include: scope
